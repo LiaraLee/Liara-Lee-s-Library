@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'ISTTG';
+    src: url('assets/Soul Paint.ttf') format('truetype');
+    font-weight: 200;
+    font-style: light;
+}
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('assets/ISawTheTvGlow.JPG') center/cover no-repeat fixed;
+    text-shadow: white 0 0 10px;
+    letter-spacing: 0.3em;
+    text-align: center;
+}
+h1{
+    color: #f952b4;
+    text-align: center;
+    font-family: 'ISTTG', sans-serif;
+}
+h1 {
+    font-size: 100px;
+}
+ul {
+    font-size: 100px;
+    border: 2px solid purple;
+    line-height: 1;
+    padding: 0;
+    background-color: rgba(250, 95, 212, 0.5);
+    border-radius: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: purple;
+    font-weight: bold;
+    display: inline-block
+}
+ul li {
+    margin: 0 10px;
+}
+ul a {
+    text-decoration: none;
+    color: purple;
+}
+ul a:hover {
+    background-color: #f952b4;
+    color: white;
+    border-radius: 3px;
+    padding: 5px;
+}
