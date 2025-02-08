@@ -1,34 +1,40 @@
+const loginForm = document.getElementById("login-form");
+const feedback = document.getElementById("login-feedback");
+
+// Check if a user is already logged in when the page loads
 document.addEventListener("DOMContentLoaded", () => {
-  const loginForm = document.getElementById("login-form");
-
-  loginForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    const email = document.getElementById("Email").value;
-    const password = document.getElementById("Password").value;
-
-    // Retrieve user details from localStorage
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-
-    if (storedUser && email === storedUser.email && password === storedUser.password) {
-      alert(`Welcome back, ${storedUser.firstName}!`);
-      window.location.href = "account.html"; // Redirect after successful login
-    } else {
-      alert("Invalid email or password. Please try again.");
-    }
-
-    loginForm.reset();
-  });
+  const storedUser = JSON.parse(localStorage.getItem("member"));
+  if (storedUser) {
+    feedback.textContent = `Welcome back, ${storedUser.firstName}!`;
+    feedback.style.color = "green";
+  }
 });
-document.addEventListener("DOMContentLoaded", () => {
-  const returnHomeButton = document.getElementById("return-home");
 
-  returnHomeButton.addEventListener("click", (event) => {
-    event.preventDefault();
-    returnHomeButton.classList.add("clicked"); // Add bounce animation class
+loginForm.addEventListener("submit", (event) => {
+  event.preventDefault();
 
+  const email = loginForm.Email.value.trim(); // match the HTML 'Email' id
+  const password = loginForm.Password.value.trim(); // match the HTML 'Password' id
+  const storedUser = JSON.parse(localStorage.getItem("member"));
+
+  if (!storedUser) {
+    showFeedback("No member found. Please sign up first.", "red");
+    return;
+  }
+
+  if (storedUser.email === email && storedUser.password === password) {
+    showFeedback(`Welcome back, ${storedUser.firstName}!`, "green");
+    localStorage.setItem("isLoggedIn", "true"); // Mark user as logged in
     setTimeout(() => {
-      window.location.href = "home.html"; // Navigate home after animation
-    }, 300); // Match the animation duration
-  });
+      window.location.href = "dashboard.html"; // Redirect to a member-only page
+    }, 2000);
+  } else {
+    showFeedback("Invalid email or password.", "red");
+  }
 });
+
+// Function to display feedback messages
+function showFeedback(message, color = "black") {
+  feedback.textContent = message;
+  feedback.style.color = color;
+}

@@ -9,17 +9,16 @@
 <body>
     <h1>WELCOME BACK</h1>
     <form id="login-form">
-        <link rel="script" href="login-script.js"> 
         <div id="Email">
-          <label for="Email"><strong>Email</strong></label>
+          <label for="email"><strong>Email</strong></label>
           <br>
-          <input type="Email" placeholder="email@domain.com" name="Email" id="Email">
+          <input type="email" placeholder="email@domain.com" name="Email" id="Email">
         </div>
         <br>
         <div id="Password">
-            <label for="Password"><strong>Password</strong></label>
+            <label for="password"><strong>Password</strong></label>
             <br>
-            <input type="text" placeholder="readBANNEDbooks!" name="Password" id="Password">
+            <input type="password" placeholder="readBANNEDbooks!" name="Password" id="Password">
           </div>
           <br>
         <div id="buttons">
@@ -27,10 +26,11 @@
         <br>
         </div>
         <div id="buttons">
-            <button type="submit">Return Home</button>
+            <button type="button" onclick="window.location.href='index.html';">Return Home</button>
           <br>
           </div>
       </form>
+    <p id="login-feedback"></p>
 <div id="footer">
   <p>Copyright © 2023 Liara Lee</p>
 </div>
